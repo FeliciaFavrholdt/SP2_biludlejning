@@ -1,0 +1,56 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/class-diagram
+
+interface Car
+abstract ACar
+abstract AFuelCar
+class GasolinCar
+class DieselCar
+class ElectricCar
+class FleetOfCars
+class Main
+Main *-- FleetOfCars
+Main : public static void main()
+FleetOfCars *-- Car
+Car <|-- ACar
+ACar <|-- AFuelCar
+AFuelCar <|-- GasolinCar
+AFuelCar <|-- DieselCar
+ACar <|-- ElectricCar
+Car : String getRegistrationNumber()
+Car : String getMake()
+Car : String getModel()
+Car : int getNumberOfDoors()
+Car : int getRegistrationFee()
+ACar : String registrationNumber
+ACar : String make
+ACar : String model
+ACar : String getRegistrationNumber()
+ACar : String getMake()
+ACar : String getModel()
+ACar : int getNumberOfDoors()
+ACar : int numberOfDoors
+ACar : @override String toString()
+AFuelCar : int kmPrLitre
+AFuelCar : String getFuelType()
+AFuelCar : int getKmPrLitre()
+AFuelCar : @override String toString()
+DieselCar : boolean particleFilter
+DieselCar : boolean hasParticleFilter()
+DieselCar : int getRegistrationFee()
+DieselCar : @override String toString()
+ElectricCar : int batteryCapacity
+ElectricCar : int maxRange
+ElectricCar : int getBatteryCapacityKWh()
+ElectricCar : int getMaxRangeKm()
+ElectricCar : int getWhPrKm()
+ElectricCar : int getRegistrationFee()
+ElectricCar : @override String toString()
+FleetOfCars : ArrayList<Car> fleet
+FleetOfCars : void addCar(Car car)
+FleetOfCars : int getTotalRegistrationFeeForFleet()
+FleetOfCars : @override String toString()
+GasolinCar : int getRegistrationFee()
+GasolinCar : @override String toString()
+@enduml
